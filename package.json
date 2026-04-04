@@ -1,5 +1,5 @@
 {
-  "name": "restaurant-page",
+  "name": "todo-list",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JayZeus999/Restaurant-Page.git"
+    "url": "git+https://github.com/JayZeus999/Todo-List.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JayZeus999/Restaurant-Page/issues"
+    "url": "https://github.com/JayZeus999/Todo-List.git/issues"
   },
-  "homepage": "https://github.com/JayZeus999/Restaurant-Page#readme",
+  "homepage": "https://github.com/JayZeus999/Todo-List.git#readme",
   "devDependencies": {
     "css-loader": "^7.1.4",
     "html-loader": "^5.1.0",
