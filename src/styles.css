@@ -24,3 +24,9 @@
     width: 100%;
     object-fit: cover;
 }
+
+.icons svg {
+  width: 20px;
+  height: 20px;
+  fill: white; /* or stroke depending on icon */
+}
