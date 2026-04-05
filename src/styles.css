@@ -12,3 +12,15 @@
     
 } */
 
+.profile-pic {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-pic img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

@@ -12,19 +12,5 @@ import "./styles.css";
 //     loadHome();
 // });
 
-// const menuBtn = document.querySelector(".menu-btn");
-// menuBtn.addEventListener("click",() => {
-//     loadMenu();
-// });
-
-// const aboutBtn = document.querySelector(".about-btn");
-// aboutBtn.addEventListener("click",() => {
-//     loadAbout();
-// });
-
-// const contactBtn = document.querySelector(".contact-btn");
-// contactBtn.addEventListener("click",() => {
-//     loadContact();
-// });
 
 // loadHome();
