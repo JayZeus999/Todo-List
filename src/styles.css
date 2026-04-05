@@ -37,7 +37,7 @@ body {
 }
 
 .sidebar {
-    width: 25rem;
+    width: 20rem;
     background-color: #f9fafb;;
     color: black;
     border-right: 1px solid #e5e7eb;
@@ -45,7 +45,7 @@ body {
     display: flex;
     flex-direction: column;
     
-    gap: 2.5rem;
+    gap: 2rem;
     padding: 1.5rem;
 
 }
