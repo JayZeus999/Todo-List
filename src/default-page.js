@@ -14,22 +14,24 @@ function rendereDefaultPage() {
 
     const toDoList = document.createElement("ul");
 
-    const listItem1 = document.createElement("li");
-    listItem1.textContent = "Warm-up Exercise";
+    function createListItem(title, desc){
+        const listItem = document.createElement("li");
+        listItem.textContent = title;
 
-    const listItem2 = document.createElement("li");
-    listItem2.textContent = "Buy beverages";
+        const listItemDesc = document.createElement("input");
+        listItemDesc.type = "text";
+        listItemDesc.placeholder = desc;
 
-    const listItem3 = document.createElement("li");
-    listItem3.textContent = "Curate Spotify playlists";
+        listItem.appendChild(listItemDesc);
 
-    const listItem4 = document.createElement("li");
-    listItem4.textContent = "Power nap";
+        toDoList.appendChild(listItem);
+    }
 
-    toDoList.appendChild(listItem1);
-    toDoList.appendChild(listItem2);
-    toDoList.appendChild(listItem3);
-    toDoList.appendChild(listItem4);
+    createListItem("Warm-up Exercise", "Do 30 pushups.");
+    createListItem("Buy beverages", "Purchase Milo, Peak etc.");
+    createListItem("Curate Spotify playlists", "By Genre, Vibes or Recency");
+    createListItem("Power nap", "Take a 15 minute snooze");
+
 
     todayProject.appendChild(toDoList);
 
