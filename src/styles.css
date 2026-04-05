@@ -33,19 +33,21 @@ body {
 .icons svg {
   width: 20px;
   height: 20px;
-  fill: white; 
+  stroke: #374151
 }
 
 .sidebar {
-    width: 16rem;
-    background-color: white;
+    width: 25rem;
+    background-color: #f9fafb;;
+    color: black;
+    border-right: 1px solid #e5e7eb;
 
     display: flex;
     flex-direction: column;
     
     gap: 2.5rem;
-    padding: 1rem;
-    border: 1px solid black;
+    padding: 1.5rem;
+
 }
 
 .profile-bar {
@@ -64,8 +66,13 @@ body {
 
 .utilities {
     height: 20rem;
+    gap: 2rem;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+}
+
+#content {
+    flex: 1;
+    background-color: white;
 }
