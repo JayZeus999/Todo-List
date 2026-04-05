@@ -12,6 +12,11 @@
     
 } */
 
+body {
+    display: flex;
+    min-height: 100vh;
+}
+
 .profile-pic {
     height: 3rem;
     width: 3rem;
@@ -28,5 +33,32 @@
 .icons svg {
   width: 20px;
   height: 20px;
-  fill: white; /* or stroke depending on icon */
+  fill: white; 
 }
+
+.sidebar {
+    width: 16rem;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 1px solid black;
+}
+
+.profile-bar {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+}
+
