@@ -1,5 +1,16 @@
 //default-page.js
 
+function createTodo(title, desc, dueDate, priority) {
+    return {
+        title,
+        desc,
+        dueDate,
+        priority,
+        completed: false
+    };
+}
+
+
 function rendereDefaultPage() {
     const container = document.querySelector("#content");
 
@@ -14,23 +25,39 @@ function rendereDefaultPage() {
 
     const toDoList = document.createElement("ul");
 
-    function createListItem(title, desc){
+    function renderTodo(todo, todoList) {
         const listItem = document.createElement("li");
-        listItem.textContent = title;
+        
+        const title = document.createElement("h4");
+        title.textContent = todo.title;
 
-        const listItemDesc = document.createElement("input");
-        listItemDesc.type = "text";
-        listItemDesc.placeholder = desc;
+        const desc = document.createElement("p");
+        desc.textContent = todo.desc;
 
-        listItem.appendChild(listItemDesc);
+        const dueDate = document.createElement("p");
+        dueDate.textContent = `Due: ${todo.dueDate}`;
+
+        const priority = document.createElement("p");
+        priority.textContent = `Priority: ${todo.priority}`;
+
+        listItem.appendChild(title);
+        listItem.appendChild(desc);
+        listItem.appendChild(dueDate);
+        listItem.appendChild(priority);
 
         toDoList.appendChild(listItem);
     }
 
-    createListItem("Warm-up Exercise", "Do 30 pushups.");
-    createListItem("Buy beverages", "Purchase Milo, Peak etc.");
-    createListItem("Curate Spotify playlists", "By Genre, Vibes or Recency");
-    createListItem("Power nap", "Take a 15 minute snooze");
+    const todos = [
+        createTodo("Warm-up Exercise", "Do 30 pushups.", "2026-04-06", "High"),
+        createTodo("Buy beverages", "Purchase Milo, Peak etc.", "2026-04-07", "Medium"),
+        createTodo("Curate Spotify playlists", "By Genre, Vibes or Recency", "2026-04-08", "Low"),
+        createTodo("Power nap", "Take a 15 minute snooze", "2026-04-09", "Low")
+    ]
+
+    todos.forEach(
+        todo => renderTodo(todo, toDoList)
+    );
 
 
     todayProject.appendChild(toDoList);
@@ -39,4 +66,5 @@ function rendereDefaultPage() {
     container.appendChild(todayProject);
 }
 
-export { rendereDefaultPage } 
+export { rendereDefaultPage };
+
