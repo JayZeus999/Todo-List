@@ -8,9 +8,11 @@
     box-sizing: border-box;
 }
 
-/* :root {
-    
-} */
+:root {
+    --svg-stroke: #374151;
+    --sidebar: #f9fafb;
+    --bdr-right: #e5e7eb;
+}
 
 body {
     display: flex;
@@ -33,21 +35,20 @@ body {
 .icons svg {
   width: 20px;
   height: 20px;
-  stroke: #374151
+  stroke: var(--svg-stroke);
 }
 
 .sidebar {
     width: 20rem;
-    background-color: #f9fafb;;
+    background-color: var(--sidebar);
     color: black;
-    border-right: 1px solid #e5e7eb;
+    border-right: 1px solid var(--bdr-right);
 
     display: flex;
     flex-direction: column;
     
     gap: 2rem;
     padding: 1.5rem;
-
 }
 
 .profile-bar {
