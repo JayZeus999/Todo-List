@@ -59,11 +59,15 @@ function rendereDefaultPage() {
         todo => renderTodo(todo, toDoList)
     );
 
+    const addTaskBtn = document.createElement("button");
+    addTaskBtn.textContent = "+ Add Task";
+    
 
     todayProject.appendChild(toDoList);
 
     container.appendChild(heading1);
     container.appendChild(todayProject);
+    container.appendChild(addTaskBtn);
 }
 
 export { rendereDefaultPage };
