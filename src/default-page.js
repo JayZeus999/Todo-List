@@ -61,7 +61,13 @@ function rendereDefaultPage() {
 
     const addTaskBtn = document.createElement("button");
     addTaskBtn.textContent = "+ Add Task";
-    
+
+    const form = document.createElement("form");
+    form.style.display = "none";
+
+    addTaskBtn.addEventListener("click", () => {
+        form.style.display = "block";
+    });
 
     todayProject.appendChild(toDoList);
 
