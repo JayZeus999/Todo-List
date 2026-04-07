@@ -2,6 +2,6 @@
 
 import "./styles.css";
 
-import { rendereDefaultPage } from "./default-page.js";
+import { renderDefaultPage } from "./default-page.js";
 
-rendereDefaultPage();
+renderDefaultPage();

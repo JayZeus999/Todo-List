@@ -11,7 +11,7 @@ function createTodo(title, desc, dueDate, priority) {
 }
 
 
-function rendereDefaultPage() {
+function renderDefaultPage() {
     const container = document.querySelector("#content");
 
     container.innerHTML = "";
@@ -69,12 +69,29 @@ function rendereDefaultPage() {
         form.style.display = "block";
     });
 
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const title = document.createElement("input");
+        const desc = document.createElement("input");
+        const dueDate = document.createElement("input");
+        const priority = document.createElement("input");
+
+        const newTodo = createTodo(title, desc, dueDate, priority);
+
+        todos.push(newTodo);
+
+        renderDefaultPage();
+    });
+
     todayProject.appendChild(toDoList);
 
-    container.appendChild(heading1);
-    container.appendChild(todayProject);
-    container.appendChild(addTaskBtn);
+    container.append(
+        heading1,
+        todayProject,
+        addTaskBtn
+    )
 }
 
-export { rendereDefaultPage };
+export { renderDefaultPage };
 
