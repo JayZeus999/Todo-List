@@ -10,6 +10,12 @@ function createTodo(title, desc, dueDate, priority) {
     };
 }
 
+const todos = [
+        createTodo("Warm-up Exercise", "Do 30 pushups.", "2026-04-06", "High"),
+        createTodo("Buy beverages", "Purchase Milo, Peak etc.", "2026-04-07", "Medium"),
+        createTodo("Curate Spotify playlists", "By Genre, Vibes or Recency", "2026-04-08", "Low"),
+        createTodo("Power nap", "Take a 15 minute snooze", "2026-04-09", "Low")
+    ]
 
 function renderDefaultPage() {
     const container = document.querySelector("#content");
@@ -48,12 +54,6 @@ function renderDefaultPage() {
         toDoList.appendChild(listItem);
     }
 
-    const todos = [
-        createTodo("Warm-up Exercise", "Do 30 pushups.", "2026-04-06", "High"),
-        createTodo("Buy beverages", "Purchase Milo, Peak etc.", "2026-04-07", "Medium"),
-        createTodo("Curate Spotify playlists", "By Genre, Vibes or Recency", "2026-04-08", "Low"),
-        createTodo("Power nap", "Take a 15 minute snooze", "2026-04-09", "Low")
-    ]
 
     todos.forEach(
         todo => renderTodo(todo, toDoList)
