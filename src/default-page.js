@@ -27,7 +27,7 @@ function renderDefaultPage() {
 
     function renderTodo(todo, todoList) {
         const listItem = document.createElement("li");
-        
+
         const title = document.createElement("h4");
         title.textContent = todo.title;
 
@@ -62,22 +62,52 @@ function renderDefaultPage() {
     const addTaskBtn = document.createElement("button");
     addTaskBtn.textContent = "+ Add Task";
 
-    const form = document.createElement("form");
-    form.style.display = "none";
 
-    addTaskBtn.addEventListener("click", () => {
-        form.style.display = "block";
-    });
+    function createTodoForm() {
+        const form = document.createElement("form");
+
+        const titleInput = document.createElement("input");
+        titleInput.placeholder = "Task title";
+
+        const descInput = document.createElement("input");
+        descInput.placeholder = "Description";
+
+        const dueDateInput = document.createElement("input");
+        dueDateInput.type = "date";
+
+        const prioritySelect = document.createElement("select");
+
+        const priorities = ["Low", "Medium", "High"];
+        priorities.forEach(
+            level => {
+                const option = document.createElement("option");
+                option.value = level;
+                option.textContent = level;
+                prioritySelect.appendChild(option);
+            }
+        );
+
+        const submitBtn = document.createElement("button");
+        submitBtn.textContent = "Add Task";
+        submitBtn.type = "submit";
+
+        form.append(
+            titleInput,
+            descInput,
+            dueDateInput,
+            prioritySelect,
+            submitBtn
+        );
+
+        return { form, titleInput, descInput, dueDateInput, prioritySelect };
+    }
+
+    const { form, titleInput, descInput, dueDateInput, prioritySelect } = createTodoForm();
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        const title = document.createElement("input");
-        const desc = document.createElement("input");
-        const dueDate = document.createElement("input");
-        const priority = document.createElement("input");
-
-        const newTodo = createTodo(title, desc, dueDate, priority);
+        const newTodo = createTodo(titleInput.value, descInput.value, dueDateInput.value, prioritySelect.value);
 
         todos.push(newTodo);
 
@@ -89,9 +119,17 @@ function renderDefaultPage() {
     container.append(
         heading1,
         todayProject,
-        addTaskBtn
+        addTaskBtn,
+        form
     )
 }
 
 export { renderDefaultPage };
 
+
+
+ // form.style.display = "none";
+
+    // addTaskBtn.addEventListener("click", () => {
+    //     form.style.display = "block";
+    // });
