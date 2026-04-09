@@ -33,24 +33,51 @@ function renderDefaultPage() {
 
     function renderTodo(todo, todoList) {
         const listItem = document.createElement("li");
+        listItem.classList.add("todo-item");
 
-        const title = document.createElement("h4");
+        // TOP ROW
+
+        const topRow = document.createElement("div");
+        topRow.classList.add("todo-top");
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+
+        const title = document.createElement("span");
         title.textContent = todo.title;
+
+        const priority = document.createElement("span");
+        priority.textContent = todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1);
+        priority.classList.add("priority", todo.priority);
+
+        topRow.append(
+            checkbox,
+            title,
+            priority
+        );
+
+        // BOTTOM ROW
+
+        const bottomRow = document.createElement("div");
+        bottomRow.classList.add("todo-bottom");
 
         const desc = document.createElement("p");
         desc.textContent = todo.desc;
 
         const dueDate = document.createElement("p");
-        dueDate.textContent = `Due: ${todo.dueDate}`;
+        dueDate.textContent = todo.dueDate;
+        // dueDate.textContent = `Due: ${todo.dueDate}`;
 
-        const priority = document.createElement("p");
-        priority.textContent = `Priority: ${todo.priority}`;
+        bottomRow.append(
+            desc,
+            dueDate
+        );
 
-        listItem.appendChild(title);
-        listItem.appendChild(desc);
-        listItem.appendChild(dueDate);
-        listItem.appendChild(priority);
-
+        listItem.append(
+            topRow,
+            bottomRow
+        );
+        
         toDoList.appendChild(listItem);
     }
 
@@ -83,7 +110,7 @@ function renderDefaultPage() {
 
         const prioritySelect = document.createElement("select");
 
-        const priorities = ["Low", "Medium", "High"];
+        const priorities = ["low", "medium", "high"];
         priorities.forEach(
             level => {
                 const option = document.createElement("option");
