@@ -132,6 +132,12 @@ function renderDefaultPage() {
         renderDefaultPage();
     });
 
+    tray.addEventListener("click", (e) => {
+        if (e.target === tray) {
+            tray.classList.remove("open");
+        }
+    })
+
     todayProject.appendChild(toDoList);
     tray.appendChild(form);
 
