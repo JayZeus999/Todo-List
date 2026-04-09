@@ -133,3 +133,24 @@ body {
     font-size: 0.85rem;
     color: #666;
 }
+
+.priority {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.priority.low {
+    background: #e0f7ec;
+    color: #1f9d55;
+}
+
+.priority.medium {
+    background: #fff4e5;
+    color: #d97706;
+}
+
+.priority.high {
+    background: #fdecca;
+    color: #dc2626;
+}
