@@ -114,6 +114,8 @@ function renderDefaultPage() {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
+        if (!titleInput.value) return;
+
         const newTodo = createTodo(
             titleInput.value, 
             descInput.value, 
