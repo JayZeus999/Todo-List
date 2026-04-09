@@ -114,9 +114,17 @@ function renderDefaultPage() {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        const newTodo = createTodo(titleInput.value, descInput.value, dueDateInput.value, prioritySelect.value);
+        const newTodo = createTodo(
+            titleInput.value, 
+            descInput.value, 
+            dueDateInput.value, 
+            prioritySelect.value
+        );
 
         todos.push(newTodo);
+
+        form.reset();
+        form.style.display = "none";
 
         renderDefaultPage();
     });
@@ -132,6 +140,3 @@ function renderDefaultPage() {
 }
 
 export { renderDefaultPage };
-
-
-    
