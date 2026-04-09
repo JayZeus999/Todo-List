@@ -111,3 +111,25 @@ body {
     padding: 1.5rem;
     border-radius: 0.5rem;
 }
+
+.todo-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid #eee;
+    list-style-type: none;
+}
+
+.todo-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-top span {
+    margin-left: 0.5rem;
+}
+
+.todo-bottom {
+    margin-left: 1.5rem;
+    font-size: 0.85rem;
+    color: #666;
+}

@@ -35,7 +35,6 @@ function renderDefaultPage() {
         const listItem = document.createElement("li");
         listItem.classList.add("todo-item");
 
-        // TOP ROW
 
         const topRow = document.createElement("div");
         topRow.classList.add("todo-top");
@@ -56,7 +55,6 @@ function renderDefaultPage() {
             priority
         );
 
-        // BOTTOM ROW
 
         const bottomRow = document.createElement("div");
         bottomRow.classList.add("todo-bottom");
@@ -73,13 +71,14 @@ function renderDefaultPage() {
             dueDate
         );
 
+        
         listItem.append(
             topRow,
             bottomRow
         );
-        
+
         toDoList.appendChild(listItem);
-    }
+    };
 
 
     todos.forEach(
@@ -133,7 +132,7 @@ function renderDefaultPage() {
         );
 
         return { tray, panel, form, titleInput, descInput, dueDateInput, prioritySelect };
-    }
+    };
 
     const { tray, panel, form, titleInput, descInput, dueDateInput, prioritySelect } = createTodoForm();
 
@@ -166,7 +165,7 @@ function renderDefaultPage() {
         if (e.target === tray) {
             tray.classList.remove("open");
         }
-    })
+    });
 
     todayProject.appendChild(toDoList);
     panel.appendChild(form);
@@ -177,7 +176,7 @@ function renderDefaultPage() {
         todayProject,
         addTaskBtn,
         tray
-    )
+    );
 }
 
 export { renderDefaultPage };
