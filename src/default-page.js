@@ -104,6 +104,13 @@ function renderDefaultPage() {
 
     const { form, titleInput, descInput, dueDateInput, prioritySelect } = createTodoForm();
 
+    form.style.display = "none";
+
+    addTaskBtn.addEventListener("click", () => {
+        form.style.display = "block";
+    });
+
+
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -127,9 +134,4 @@ function renderDefaultPage() {
 export { renderDefaultPage };
 
 
-
- // form.style.display = "none";
-
-    // addTaskBtn.addEventListener("click", () => {
-    //     form.style.display = "block";
-    // });
+    
