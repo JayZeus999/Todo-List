@@ -64,6 +64,9 @@ function renderDefaultPage() {
 
 
     function createTodoForm() {
+        const tray = document.createElement("div");
+        tray.classList.add("task-tray");
+
         const form = document.createElement("form");
 
         const titleInput = document.createElement("input");
@@ -99,15 +102,13 @@ function renderDefaultPage() {
             submitBtn
         );
 
-        return { form, titleInput, descInput, dueDateInput, prioritySelect };
+        return { tray, form, titleInput, descInput, dueDateInput, prioritySelect };
     }
 
-    const { form, titleInput, descInput, dueDateInput, prioritySelect } = createTodoForm();
-
-    form.style.display = "none";
+    const { tray, form, titleInput, descInput, dueDateInput, prioritySelect } = createTodoForm();
 
     addTaskBtn.addEventListener("click", () => {
-        form.style.display = "block";
+        tray.classList.add("open");
     });
 
 
@@ -126,18 +127,19 @@ function renderDefaultPage() {
         todos.push(newTodo);
 
         form.reset();
-        form.style.display = "none";
+        tray.classList.remove("open");
 
         renderDefaultPage();
     });
 
     todayProject.appendChild(toDoList);
+    tray.appendChild(form);
 
     container.append(
         heading1,
         todayProject,
         addTaskBtn,
-        form
+        tray
     )
 }
 

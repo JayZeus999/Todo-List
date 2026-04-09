@@ -77,3 +77,23 @@ body {
     flex: 1;
     background-color: white;
 }
+
+.task-tray {
+    position: fixed;
+    top: 0;
+    right: -400px;
+
+    width: 350px;
+    height: 100%;
+    background-color: white;
+    color: black;
+
+    border-left: 1px solid #ddd;
+    padding: 1rem;
+
+    transition: right 0.3s ease;
+}
+
+.task-tray.open {
+    right: 0;
+}
