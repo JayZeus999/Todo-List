@@ -104,3 +104,10 @@ body {
     opacity: 1;
     pointer-events: all;
 }
+
+.task-panel {
+    width: 25rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}

@@ -67,6 +67,9 @@ function renderDefaultPage() {
         const tray = document.createElement("div");
         tray.classList.add("task-tray");
 
+        const panel = document.createElement("div");
+        panel.classList.add("task-panel");
+
         const form = document.createElement("form");
 
         const titleInput = document.createElement("input");
@@ -102,10 +105,10 @@ function renderDefaultPage() {
             submitBtn
         );
 
-        return { tray, form, titleInput, descInput, dueDateInput, prioritySelect };
+        return { tray, panel, form, titleInput, descInput, dueDateInput, prioritySelect };
     }
 
-    const { tray, form, titleInput, descInput, dueDateInput, prioritySelect } = createTodoForm();
+    const { tray, panel, form, titleInput, descInput, dueDateInput, prioritySelect } = createTodoForm();
 
     addTaskBtn.addEventListener("click", () => {
         tray.classList.add("open");
@@ -139,7 +142,8 @@ function renderDefaultPage() {
     })
 
     todayProject.appendChild(toDoList);
-    tray.appendChild(form);
+    panel.appendChild(form);
+    tray.appendChild(panel);
 
     container.append(
         heading1,
