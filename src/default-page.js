@@ -35,9 +35,11 @@ function renderDefaultPage() {
         const listItem = document.createElement("li");
         listItem.classList.add("todo-item");
 
-
         const topRow = document.createElement("div");
         topRow.classList.add("todo-top");
+
+        const leftGroup = document.createElement("div");
+        leftGroup.classList.add("todo-left");
 
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
@@ -49,9 +51,13 @@ function renderDefaultPage() {
         priority.textContent = todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1);
         priority.classList.add("priority", todo.priority);
 
-        topRow.append(
+        leftGroup.append(
             checkbox,
-            title,
+            title
+        );
+
+        topRow.append(
+            leftGroup,
             priority
         );
 
@@ -87,6 +93,10 @@ function renderDefaultPage() {
 
     const addTaskBtn = document.createElement("button");
     addTaskBtn.textContent = "+ Add Task";
+
+    addTaskBtn.addEventListener("click", () => {
+        tray.classList.add("open");
+    });
 
 
     function createTodoForm() {
@@ -136,10 +146,6 @@ function renderDefaultPage() {
 
     const { tray, panel, form, titleInput, descInput, dueDateInput, prioritySelect } = createTodoForm();
 
-    addTaskBtn.addEventListener("click", () => {
-        tray.classList.add("open");
-    });
-
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -167,14 +173,16 @@ function renderDefaultPage() {
         }
     });
 
-    todayProject.appendChild(toDoList);
+    todayProject.append(
+        toDoList,
+        addTaskBtn
+    );
     panel.appendChild(form);
     tray.appendChild(panel);
 
     container.append(
         heading1,
         todayProject,
-        addTaskBtn,
         tray
     );
 }
