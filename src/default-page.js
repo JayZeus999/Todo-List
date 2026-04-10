@@ -44,6 +44,13 @@ function renderDefaultPage() {
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
 
+        checkbox.checked = todo.completed;
+        checkbox.addEventListener("change", () => {
+                todo.completed = checkbox.checked;
+                listItem.classList.toggle("completed", todo.completed); // adds/removes class automatically.
+            }
+        );
+
         const title = document.createElement("span");
         title.textContent = todo.title;
 
