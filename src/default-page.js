@@ -5,16 +5,16 @@ function createTodo(title, desc, dueDate, priority) {
         title,
         desc,
         dueDate,
-        priority,
+        priority: priority.toLowerCase(),
         completed: false
     };
 }
 
 const todos = [
-        createTodo("Warm-up Exercise", "Do 30 pushups.", "2026-04-06", "High"),
-        createTodo("Buy beverages", "Purchase Milo, Peak etc.", "2026-04-07", "Medium"),
-        createTodo("Curate Spotify playlists", "By Genre, Vibes or Recency", "2026-04-08", "Low"),
-        createTodo("Power nap", "Take a 15 minute snooze", "2026-04-09", "Low")
+        createTodo("Warm-up Exercise", "Do 30 pushups.", "2026-04-06", "high"),
+        createTodo("Buy beverages", "Purchase Milo, Peak etc.", "2026-04-07", "medium"),
+        createTodo("Curate Spotify playlists", "By Genre, Vibes or Recency", "2026-04-08", "low"),
+        createTodo("Power nap", "Take a 15 minute snooze", "2026-04-09", "low")
     ]
 
 function renderDefaultPage() {
