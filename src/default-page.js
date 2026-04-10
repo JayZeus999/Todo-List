@@ -31,7 +31,7 @@ function renderDefaultPage() {
 
     const toDoList = document.createElement("ul");
 
-    function renderTodo(todo, todoList) {
+    function renderTodo(todo, todoList, index) {
         const listItem = document.createElement("li");
         listItem.classList.add("todo-item");
 
@@ -58,10 +58,20 @@ function renderDefaultPage() {
         priority.textContent = todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1);
         priority.classList.add("priority", todo.priority);
 
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "✕";
+        deleteBtn.classList.add("delete-btn");
+
+        deleteBtn.addEventListener("click", () => {
+            todos.splice(index, 1);
+            renderDefaultPage();
+        })
+
         leftGroup.append(
             checkbox,
             title,
-            priority
+            priority,
+            deleteBtn
         );
 
         topRow.append(
@@ -95,7 +105,7 @@ function renderDefaultPage() {
 
 
     todos.forEach(
-        todo => renderTodo(todo, toDoList)
+        (todo, index) => renderTodo(todo, toDoList, index)
     );
 
     const addTaskBtn = document.createElement("button");
