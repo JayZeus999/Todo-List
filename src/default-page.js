@@ -53,12 +53,12 @@ function renderDefaultPage() {
 
         leftGroup.append(
             checkbox,
-            title
+            title,
+            priority
         );
 
         topRow.append(
-            leftGroup,
-            priority
+            leftGroup
         );
 
 
