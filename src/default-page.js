@@ -31,6 +31,8 @@ function renderDefaultPage() {
 
     const toDoList = document.createElement("ul");
 
+    let editingIndex = null;
+
     function renderTodo(todo, todoList, index) {
         const listItem = document.createElement("li");
         listItem.classList.add("todo-item");
@@ -62,10 +64,21 @@ function renderDefaultPage() {
         deleteBtn.textContent = "✕";
         deleteBtn.classList.add("delete-btn");
 
+        listItem.addEventListener("click", () => {
+            editingIndex = index;
+
+            titleInput.value = todo.title;
+            descInput.value = todo.desc;
+            dueDateInput.value = todo.dueDate;
+            prioritySelect.value = todo.priority;
+
+            tray.classList.add("open");
+        });
+
         deleteBtn.addEventListener("click", () => {
             todos.splice(index, 1);
             renderDefaultPage();
-        })
+        });
 
         leftGroup.append(
             checkbox,
@@ -147,7 +160,7 @@ function renderDefaultPage() {
         );
 
         const submitBtn = document.createElement("button");
-        submitBtn.textContent = "Add Task";
+        submitBtn.textContent = "Save Task";
         submitBtn.type = "submit";
 
         form.append(
@@ -176,7 +189,12 @@ function renderDefaultPage() {
             prioritySelect.value
         );
 
-        todos.push(newTodo);
+        if (editingIndex !== null) {
+            todos[editingIndex] = newTodo;
+            editingIndex = null;
+        } else {
+            todos.push(newTodo);
+        }
 
         form.reset();
         tray.classList.remove("open");
