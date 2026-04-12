@@ -10,12 +10,19 @@ function createTodo(title, desc, dueDate, priority) {
     };
 }
 
-const todos = [
-        createTodo("Warm-up Exercise", "Do 30 pushups.", "2026-04-06", "high"),
-        createTodo("Buy beverages", "Purchase Milo, Peak etc.", "2026-04-07", "medium"),
-        createTodo("Curate Spotify playlists", "By Genre, Vibes or Recency", "2026-04-08", "low"),
-        createTodo("Power nap", "Take a 15 minute snooze", "2026-04-09", "low")
-    ]
+const projects = [
+    {
+        name: "Today",
+        todos: [
+            createTodo("Warm-up Exercise", "Do 30 pushups.", "2026-04-06", "high"),
+            createTodo("Buy beverages", "Purchase Milo, Peak etc.", "2026-04-07", "medium"),
+            createTodo("Curate Spotify playlists", "By Genre, Vibes or Recency", "2026-04-08", "low"),
+            createTodo("Power nap", "Take a 15 minute snooze", "2026-04-09", "low")
+        ]
+    }
+];
+
+let currentProjectIndex = 0;
 
 function renderDefaultPage() {
     const container = document.querySelector("#content");
@@ -83,7 +90,7 @@ function renderDefaultPage() {
         deleteBtn.addEventListener("click", (e) => {
             e.stopPropagation();
 
-            todos.splice(index, 1);
+            currentProject.todos.splice(index, 1);
             renderDefaultPage();
         });
 
@@ -123,8 +130,9 @@ function renderDefaultPage() {
         toDoList.appendChild(listItem);
     };
 
+    const currentProject = projects[currentProjectIndex]
 
-    todos.forEach(
+    currentProject.todos.forEach(
         (todo, index) => renderTodo(todo, toDoList, index)
     );
 
@@ -197,10 +205,10 @@ function renderDefaultPage() {
         );
 
         if (editingIndex !== null) {
-            todos[editingIndex] = newTodo;
+            currentProject.todos[editingIndex] = newTodo;
             editingIndex = null;
         } else {
-            todos.push(newTodo);
+            currentProject.todos.push(newTodo);
         }
 
         form.reset();
