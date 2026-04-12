@@ -29,6 +29,37 @@ function renderDefaultPage() {
 
     container.innerHTML = "";
 
+    const projectsList = document.querySelector(".projects-list");
+    const addProjectBtn = document.querySelector(".add-project-btn");
+
+    projectsList.innerHTML = "";
+
+    projects.forEach((project, index) => {
+        const projectItem = document.createElement("div");
+        projectItem.textContent = project.name;
+
+        projectItem.addEventListener("click", () => {
+            currentProjectIndex = index;
+            renderDefaultPage();
+        });
+
+        projectsList.appendChild(projectItem);
+    });
+
+    addProjectBtn.onclick = () => {
+        const name = prompt("Project name:");
+        if (!name) return;
+
+        projects.push({
+            name,
+            todos: []
+        });
+
+        currentProjectIndex = projects.length - 1;
+
+        renderDefaultPage();
+    };
+
     const heading1 = document.createElement("h1");
     heading1.classList.add("header");
     heading1.textContent = "Today Project";
