@@ -47,6 +47,11 @@ function renderDefaultPage() {
         checkbox.type = "checkbox";
 
         checkbox.checked = todo.completed;
+
+        checkbox.addEventListener("click", (e) => {
+            e.stopPropagation();
+        });
+
         checkbox.addEventListener("change", () => {
                 todo.completed = checkbox.checked;
                 listItem.classList.toggle("completed", todo.completed); // adds/removes class automatically.
@@ -75,7 +80,9 @@ function renderDefaultPage() {
             tray.classList.add("open");
         });
 
-        deleteBtn.addEventListener("click", () => {
+        deleteBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+
             todos.splice(index, 1);
             renderDefaultPage();
         });

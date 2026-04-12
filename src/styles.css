@@ -21,10 +21,12 @@
     --priority-low: #1f9d55;
 
     --priority-mdm-bg: #fff7ed;;
-    --priority-mdm: #ea580c;;
+    --priority-mdm: #ea580c;
 
     --priority-high-bg: #fdecca;;
     --priority-high: #dc2626;
+
+    --delete-btn: #999;
 }
 
 
@@ -183,7 +185,7 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    color: #999;
+    color: var(--delete-btn);
     font-size: 0.9rem;
 }
 
