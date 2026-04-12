@@ -60,9 +60,12 @@ function renderDefaultPage() {
         renderDefaultPage();
     };
 
+    const currentProject = projects[currentProjectIndex]
+
+
     const heading1 = document.createElement("h1");
     heading1.classList.add("header");
-    heading1.textContent = "Today Project";
+    heading1.textContent = currentProject.name + " Project";
 
     const todayProject = document.createElement("div");
     todayProject.classList.add("today-project")
@@ -161,11 +164,11 @@ function renderDefaultPage() {
         toDoList.appendChild(listItem);
     };
 
-    const currentProject = projects[currentProjectIndex]
-
+    
     currentProject.todos.forEach(
         (todo, index) => renderTodo(todo, toDoList, index)
     );
+    
 
     const addTaskBtn = document.createElement("button");
     addTaskBtn.textContent = "+ Add Task";
