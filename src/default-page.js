@@ -1,5 +1,11 @@
 //default-page.js
 
+const savedProjects = JSON.parse(localStorage.getItem("projects"));
+
+function saveProjects() {
+    localStorage.setItem("projects", JSON.stringify(projects));
+}
+
 function createTodo(title, desc, dueDate, priority) {
     return {
         title,
@@ -10,7 +16,7 @@ function createTodo(title, desc, dueDate, priority) {
     };
 }
 
-const projects = [
+const projects = savedProjects || [
     {
         name: "Today",
         todos: [
@@ -46,6 +52,7 @@ function renderDefaultPage() {
         projectsList.appendChild(projectItem);
     });
 
+    // Add New Project
     addProjectBtn.onclick = () => {
         const name = prompt("Project name:");
         if (!name) return;
@@ -56,6 +63,8 @@ function renderDefaultPage() {
         });
 
         currentProjectIndex = projects.length - 1;
+
+        saveProjects();
 
         renderDefaultPage();
     };
@@ -125,6 +134,9 @@ function renderDefaultPage() {
             e.stopPropagation();
 
             currentProject.todos.splice(index, 1);
+
+            saveProjects();
+
             renderDefaultPage();
         });
 
@@ -147,7 +159,7 @@ function renderDefaultPage() {
         desc.textContent = todo.desc;
 
         const dueDate = document.createElement("p");
-        dueDate.textContent = todo.dueDate;
+        dueDate.textContent = `Due: ${todo.dueDate}`;
         // dueDate.textContent = `Due: ${todo.dueDate}`;
 
         bottomRow.append(
@@ -247,6 +259,8 @@ function renderDefaultPage() {
 
         form.reset();
         tray.classList.remove("open");
+
+        saveProjects();
 
         renderDefaultPage();
     });
