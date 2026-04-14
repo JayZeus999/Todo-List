@@ -29,7 +29,8 @@ const projects = savedProjects || [
 ];
 
 
-let currentProjectIndex = 0;
+let currentProjectIndex = localStorage.getItem("currentProjectIndex");
+currentProjectIndex = currentProjectIndex ? Number(currentProjectIndex): 0;
 
 function renderDefaultPage() {
     const container = document.querySelector("#content");
@@ -47,6 +48,9 @@ function renderDefaultPage() {
 
         projectItem.addEventListener("click", () => {
             currentProjectIndex = index;
+
+            localStorage.setItem("currentProjectIndex", currentProjectIndex);
+
             renderDefaultPage();
         });
 
@@ -66,6 +70,8 @@ function renderDefaultPage() {
         currentProjectIndex = projects.length - 1;
 
         saveProjects();
+
+        localStorage.setItem("currentProjectIndex", currentProjectIndex);
 
         renderDefaultPage();
     };
