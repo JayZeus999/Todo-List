@@ -28,6 +28,7 @@ const projects = savedProjects || [
     }
 ];
 
+
 let currentProjectIndex = 0;
 
 function renderDefaultPage() {
@@ -71,6 +72,10 @@ function renderDefaultPage() {
 
     const currentProject = projects[currentProjectIndex]
 
+    const sortedTodos = [...currentProject.todos].sort((a, b) => {
+        return a.completed - b.completed;
+    });
+
 
     const heading1 = document.createElement("h1");
     heading1.classList.add("header");
@@ -86,6 +91,10 @@ function renderDefaultPage() {
     function renderTodo(todo, todoList, index) {
         const listItem = document.createElement("li");
         listItem.classList.add("todo-item");
+
+        if (todo.completed) {
+            listItem.classList.add("completed");
+        }
 
         const topRow = document.createElement("div");
         topRow.classList.add("todo-top");
@@ -103,10 +112,13 @@ function renderDefaultPage() {
         });
 
         checkbox.addEventListener("change", () => {
-                todo.completed = checkbox.checked;
-                listItem.classList.toggle("completed", todo.completed); // adds/removes class automatically.
-            }
-        );
+            todo.completed = checkbox.checked;
+            // listItem.classList.toggle("completed", todo.completed); // adds/removes class automatically.
+            
+            saveProjects();
+
+            renderDefaultPage();
+        });
 
         const title = document.createElement("span");
         title.textContent = todo.title;
@@ -160,14 +172,13 @@ function renderDefaultPage() {
 
         const dueDate = document.createElement("p");
         dueDate.textContent = `Due: ${todo.dueDate}`;
-        // dueDate.textContent = `Due: ${todo.dueDate}`;
 
         bottomRow.append(
             desc,
             dueDate
         );
 
-        
+
         listItem.append(
             topRow,
             bottomRow
@@ -177,10 +188,13 @@ function renderDefaultPage() {
     };
 
     
-    currentProject.todos.forEach(
-        (todo, index) => renderTodo(todo, toDoList, index)
+    sortedTodos.forEach(
+        (todo) => {
+            const originalIndex = currentProject.todos.indexOf(todo);
+            renderTodo(todo, toDoList, originalIndex);
+        }
     );
-    
+
 
     const addTaskBtn = document.createElement("button");
     addTaskBtn.textContent = "+ Add Task";
@@ -244,9 +258,9 @@ function renderDefaultPage() {
         if (!titleInput.value) return;
 
         const newTodo = createTodo(
-            titleInput.value, 
-            descInput.value, 
-            dueDateInput.value, 
+            titleInput.value,
+            descInput.value,
+            dueDateInput.value,
             prioritySelect.value
         );
 
