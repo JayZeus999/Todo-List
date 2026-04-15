@@ -24,10 +24,11 @@
     --priority-low-bg: #e0f7ec;
     --priority-low: #1f9d55;
 
-    --priority-mdm-bg:  #e0f2fe;
+    --priority-mdm-bg: #e0f2fe;
     --priority-mdm: #0284c7;
 
-    --priority-high-bg: #fdecca;;
+    --priority-high-bg: #fdecca;
+    ;
     --priority-high: #dc2626;
 
     --delete-btn: #999;
@@ -46,16 +47,16 @@ body {
     overflow: hidden;
 }
 
-.profile-pic img{
+.profile-pic img {
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
 .icons svg {
-  width: 20px;
-  height: 20px;
-  stroke: var(--svg-stroke);
+    width: 20px;
+    height: 20px;
+    stroke: var(--svg-stroke);
 }
 
 .sidebar {
@@ -66,7 +67,7 @@ body {
 
     display: flex;
     flex-direction: column;
-    
+
     gap: 2rem;
     padding: 1.5rem;
 }
@@ -137,9 +138,12 @@ body {
 .project-delete-btn {
     background: none;
     border: none;
-    cursor: pointer;
     color: var(--delete-btn);
+
     font-size: 0.9rem;
+
+    opacity: 0;
+    cursor: pointer;
 }
 
 .project-delete-btn:hover {
@@ -240,6 +244,10 @@ body {
 }
 
 .delete-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: var(--priority-high);
     color: white;
     border: none;
@@ -248,17 +256,13 @@ body {
     width: 1.2rem;
     height: 1.2rem;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
     cursor: pointer;
     font-size: 0.7rem;
 
     transition: all 0.15s ease;
 }
 
-.project-item:hover .delete-btn,
+.project-item:hover .project-delete-btn,
 .todo-item:hover .delete-btn {
     opacity: 1;
     transform: translateY(-1px);

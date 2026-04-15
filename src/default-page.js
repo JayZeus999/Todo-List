@@ -46,14 +46,14 @@ function renderDefaultPage() {
     projects.forEach((project, index) => {
         const projectItem = document.createElement("div");
         projectItem.classList.add("project-item");
-        projectItem.textContent = project.name;
+       
+        const projectName = document.createElement("span");
+        projectName.textContent = project.name;
 
         if (index === currentProjectIndex) {
             projectItem.classList.add("active-project");
         }
 
-
-        // project-delete-btn
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "✕";
         deleteBtn.classList.add("project-delete-btn");
@@ -86,7 +86,10 @@ function renderDefaultPage() {
             renderDefaultPage();
         });
 
-        projectItem.appendChild(deleteBtn);
+        projectItem.append(
+            projectName,
+            deleteBtn
+        );
 
         projectsList.appendChild(projectItem);
     });
