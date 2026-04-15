@@ -145,6 +145,10 @@ function renderDefaultPage() {
         const leftGroup = document.createElement("div");
         leftGroup.classList.add("todo-left");
 
+        const rightGroup = document.createElement("div");
+        rightGroup.style.display = "flex";
+        rightGroup.style.alignItems = "center";
+
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
 
@@ -198,12 +202,16 @@ function renderDefaultPage() {
         leftGroup.append(
             checkbox,
             title,
-            priority,
+            priority
+        );
+
+        rightGroup.append(
             deleteBtn
         );
 
         topRow.append(
-            leftGroup
+            leftGroup,
+            rightGroup
         );
 
 
