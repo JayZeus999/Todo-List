@@ -45,6 +45,7 @@ function renderDefaultPage() {
 
     projects.forEach((project, index) => {
         const projectItem = document.createElement("div");
+        projectItem.classList.add("project-item");
         projectItem.textContent = project.name;
 
         if (index === currentProjectIndex) {

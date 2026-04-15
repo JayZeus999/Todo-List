@@ -17,7 +17,8 @@
     --todo-bottom: #666;
     --todo-item-bottom: #eee;
 
-    --active-project: #e5e7eb;
+    --active-project-bg: #e5e7eb;
+    --active-project-color: #0284c7;;
     --projects-list-hover: #f3f4f6;
 
     --priority-low-bg: #e0f7ec;
@@ -131,17 +132,25 @@ body {
     border-radius: 0.5rem;
 }
 
-.active-project {
-    background-color: var(--active-project);
-    font-weight: bold;
+.project-item {
+    padding: 0.5rem 0.6rem;
     border-radius: 0.4rem;
-    padding: 0.3rem;
+    transition: background 0.15s ease;
 }
 
-.projects-list div:hover {
+.project-item:hover {
     background-color: var(--projects-list-hover);
     cursor: pointer;
 }
+
+.active-project {
+    background-color: var(--active-project-bg);
+    color: var(--active-project-color);
+    font-weight: bold;
+    border-left: 4px solid var(--active-project-color);
+    padding-left: 0.4rem;
+}
+
 
 .todo-item {
     padding: 0.75rem;
