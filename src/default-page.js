@@ -56,7 +56,7 @@ function renderDefaultPage() {
         // project-delete-btn
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "✕";
-        deleteBtn.classList.add("delete-btn");
+        deleteBtn.classList.add("project-delete-btn");
 
         deleteBtn.addEventListener("click", (e) => {
             e.stopPropagation();

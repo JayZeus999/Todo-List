@@ -111,6 +111,41 @@ body {
     cursor: pointer;
 }
 
+.project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.5rem 0.6rem;
+    border-radius: 0.4rem;
+    transition: background 0.15s ease;
+}
+
+.project-item:hover {
+    background-color: var(--projects-list-hover);
+    cursor: pointer;
+}
+
+.active-project {
+    background-color: var(--active-project-bg);
+    color: var(--active-project-color);
+    font-weight: bold;
+    border-left: 4px solid var(--active-project-color);
+    padding-left: 0.4rem;
+}
+
+.project-delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--delete-btn);
+    font-size: 0.9rem;
+}
+
+.project-delete-btn:hover {
+    color: var(--priority-high);
+}
+
 #content {
     flex: 1;
     background-color: var(--bg-color);
@@ -148,25 +183,6 @@ body {
     background-color: var(--bg-color);
     padding: 1.5rem;
     border-radius: 0.5rem;
-}
-
-.project-item {
-    padding: 0.5rem 0.6rem;
-    border-radius: 0.4rem;
-    transition: background 0.15s ease;
-}
-
-.project-item:hover {
-    background-color: var(--projects-list-hover);
-    cursor: pointer;
-}
-
-.active-project {
-    background-color: var(--active-project-bg);
-    color: var(--active-project-color);
-    font-weight: bold;
-    border-left: 4px solid var(--active-project-color);
-    padding-left: 0.4rem;
 }
 
 
@@ -224,13 +240,27 @@ body {
 }
 
 .delete-btn {
-    background: none;
+    background-color: var(--priority-high);
+    color: white;
     border: none;
+    border-radius: 0.35rem;
+
+    width: 1.2rem;
+    height: 1.2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     cursor: pointer;
-    color: var(--delete-btn);
-    font-size: 0.9rem;
+    font-size: 0.7rem;
+
+    transition: all 0.15s ease;
 }
 
-.delete-btn:hover {
-    color: var(--priority-high);
+.project-item:hover .delete-btn,
+.todo-item:hover .delete-btn {
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
