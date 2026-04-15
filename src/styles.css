@@ -17,6 +17,9 @@
     --todo-bottom: #666;
     --todo-item-bottom: #eee;
 
+    --active-project: #e5e7eb;
+    --projects-list-hover: #f3f4f6;
+
     --priority-low-bg: #e0f7ec;
     --priority-low: #1f9d55;
 
@@ -129,10 +132,15 @@ body {
 }
 
 .active-project {
-    background-color: #e5e7eb;
+    background-color: var(--active-project);
     font-weight: bold;
     border-radius: 0.4rem;
     padding: 0.3rem;
+}
+
+.projects-list div:hover {
+    background-color: var(--projects-list-hover);
+    cursor: pointer;
 }
 
 .todo-item {
