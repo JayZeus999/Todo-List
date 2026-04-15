@@ -31,7 +31,7 @@ const projects = savedProjects || [
 const PROJECT_INDEX_KEY = "currentProjectIndex";
 
 let currentProjectIndex = localStorage.getItem(PROJECT_INDEX_KEY);
-currentProjectIndex = currentProjectIndex ? Number(currentProjectIndex): 0;
+currentProjectIndex = currentProjectIndex ? Number(currentProjectIndex) : 0;
 
 function renderDefaultPage() {
     const container = document.querySelector("#content");
@@ -47,6 +47,30 @@ function renderDefaultPage() {
         const projectItem = document.createElement("div");
         projectItem.textContent = project.name;
 
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "✕";
+        deleteBtn.classList.add("delete-btn");
+
+        deleteBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+
+            projects.splice(index, 1);
+
+            if (currentProjectIndex >= projects.length) {
+                currentProjectIndex = projects.length - 1;
+            }
+
+            if (projects.length === 0) {
+                currentProjectIndex = 0;
+            }
+
+            saveProjects();
+
+            localStorage.setItem(PROJECT_INDEX_KEY, currentProjectIndex);
+
+            renderDefaultPage();
+        })
+
         projectItem.addEventListener("click", () => {
             currentProjectIndex = index;
 
@@ -54,6 +78,8 @@ function renderDefaultPage() {
 
             renderDefaultPage();
         });
+
+        projectItem.appendChild(deleteBtn);
 
         projectsList.appendChild(projectItem);
     });
@@ -67,6 +93,7 @@ function renderDefaultPage() {
             name,
             todos: []
         });
+
 
         currentProjectIndex = projects.length - 1;
 
@@ -121,7 +148,7 @@ function renderDefaultPage() {
         checkbox.addEventListener("change", () => {
             todo.completed = checkbox.checked;
             // listItem.classList.toggle("completed", todo.completed); // adds/removes class automatically.
-            
+
             saveProjects();
 
             renderDefaultPage();
@@ -194,7 +221,7 @@ function renderDefaultPage() {
         toDoList.appendChild(listItem);
     };
 
-    
+
     sortedTodos.forEach(
         (todo) => {
             const originalIndex = currentProject.todos.indexOf(todo);
