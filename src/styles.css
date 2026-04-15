@@ -128,6 +128,13 @@ body {
     border-radius: 0.5rem;
 }
 
+.active-project {
+    background-color: #e5e7eb;
+    font-weight: bold;
+    border-radius: 0.4rem;
+    padding: 0.3rem;
+}
+
 .todo-item {
     padding: 0.75rem;
     border-radius: 0.5rem;

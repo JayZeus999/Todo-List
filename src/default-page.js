@@ -47,6 +47,12 @@ function renderDefaultPage() {
         const projectItem = document.createElement("div");
         projectItem.textContent = project.name;
 
+        if (index === currentProjectIndex) {
+            projectItem.classList.add("active-project");
+        }
+
+
+        // project-delete-btn
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "✕";
         deleteBtn.classList.add("delete-btn");
@@ -69,7 +75,7 @@ function renderDefaultPage() {
             localStorage.setItem(PROJECT_INDEX_KEY, currentProjectIndex);
 
             renderDefaultPage();
-        })
+        });
 
         projectItem.addEventListener("click", () => {
             currentProjectIndex = index;
@@ -84,7 +90,7 @@ function renderDefaultPage() {
         projectsList.appendChild(projectItem);
     });
 
-    // Add New Project
+
     addProjectBtn.onclick = () => {
         const name = prompt("Project name:");
         if (!name) return;
@@ -93,7 +99,6 @@ function renderDefaultPage() {
             name,
             todos: []
         });
-
 
         currentProjectIndex = projects.length - 1;
 
