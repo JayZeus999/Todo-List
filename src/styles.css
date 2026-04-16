@@ -300,7 +300,6 @@ input[type="checkbox"].high:checked {
     background-color: var(--priority-high);
 }
 
-
 input[type="checkbox"]::before {
     content: "✓";
     color: white;
@@ -310,13 +309,13 @@ input[type="checkbox"]::before {
     transition: transform 0.15s ease;
 }
 
-
 input[type="checkbox"]:checked::before {
     opacity: 1;
 }
 
 
-.todo-item.completed {
+.todo-item.completed span,
+.todo-item.completed p {
     opacity: 0.6;
     text-decoration: line-through;
 }
