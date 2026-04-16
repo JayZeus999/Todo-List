@@ -107,10 +107,14 @@ h1, h3 {
     border: none;
     text-align: left;
 
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
     padding: 0.5rem 0.6rem;
     border-radius: 0.4rem;
     font-size: 0.95rem;
-    font-family: "Inter", sans-serif;
+    font-family: "Poppins", sans-serif;
 
     color: #374151;
     transition: background 0.15s ease;
