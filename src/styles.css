@@ -1,5 +1,6 @@
 /* styles.css */
 
+
 *,
 ::before,
 ::after {
@@ -40,7 +41,11 @@
 body {
     display: flex;
     min-height: 100vh;
-    font-family: "Inter", sans-serif;
+    font-family:  "Inter", sans-serif;
+}
+
+h1, h3 {
+    font-family: "Poppins", sans-serif;
 }
 
 .profile-pic {
@@ -105,6 +110,7 @@ body {
     padding: 0.5rem 0.6rem;
     border-radius: 0.4rem;
     font-size: 0.95rem;
+    font-family: "Inter", sans-serif;
 
     color: #374151;
     transition: background 0.15s ease;
@@ -132,8 +138,8 @@ body {
 
 .active-project {
     background-color: rgba(2, 132, 199, 0.1);
-    ;
     color: var(--active-project-color);
+
     font-weight: bold;
     border-left: 4px solid var(--active-project-color);
     padding-left: 0.4rem;
