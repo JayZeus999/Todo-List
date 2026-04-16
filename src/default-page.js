@@ -151,6 +151,7 @@ function renderDefaultPage() {
 
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
+        checkbox.classList.add(todo.priority);
 
         checkbox.checked = todo.completed;
 

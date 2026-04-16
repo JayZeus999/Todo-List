@@ -130,7 +130,8 @@ body {
 }
 
 .active-project {
-    background-color: var(--active-project-bg);
+    background-color: rgba(2, 132, 199, 0.1);
+    ;
     color: var(--active-project-color);
     font-weight: bold;
     border-left: 4px solid var(--active-project-color);
@@ -191,7 +192,7 @@ body {
 
     display: flex;
     flex-direction: column;
-    
+
     gap: 3.5rem;
     padding: 1.5rem;
     border-radius: 0.5rem;
@@ -215,7 +216,7 @@ body {
 }
 
 .task-panel button {
-    background: var(--cta-color);  
+    background: var(--cta-color);
     border: none;
     color: white;
 
@@ -241,16 +242,79 @@ body {
 }
 
 
-
-
-
 .todo-item {
     padding: 0.75rem;
     border-radius: 0.5rem;
+    margin-bottom: 0.4rem;
 
     border-bottom: 1px solid var(--todo-item-bottom);
     list-style-type: none;
 }
+
+.todo-item:hover {
+    transform: translateY(-1px);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    border: 2px solid currentColor;
+    transition: all 0.2s ease;
+}
+
+input[type="checkbox"].low {
+    border-color: var(--priority-low);
+    background-color: rgba(31, 157, 85, 0.15);
+    box-shadow: 0 0 4px var(--priority-low);
+}
+
+input[type="checkbox"].medium {
+    border-color: var(--priority-mdm);
+    background-color: rgba(2, 132, 199, 0.15);
+    box-shadow: 0 0 4px var(--priority-mdm);
+}
+
+input[type="checkbox"].high {
+    border-color: var(--priority-high);
+    background-color: rgba(220, 38, 38, 0.15);
+    box-shadow: 0 0 4px var(--priority-high);
+}
+
+input[type="checkbox"].low:checked {
+    background-color: var(--priority-low);
+}
+
+input[type="checkbox"].medium:checked {
+    background-color: var(--priority-mdm);
+}
+
+input[type="checkbox"].high:checked {
+    background-color: var(--priority-high);
+}
+
+
+input[type="checkbox"]::before {
+    content: "✓";
+    color: white;
+    font-size: 0.6rem;
+
+    opacity: 0;
+    transition: transform 0.15s ease;
+}
+
+
+input[type="checkbox"]:checked::before {
+    opacity: 1;
+}
+
 
 .todo-item.completed {
     opacity: 0.6;
