@@ -249,6 +249,7 @@ function renderDefaultPage() {
 
 
     const addTaskBtn = document.createElement("button");
+    addTaskBtn.classList.add("add-task-btn");
     addTaskBtn.textContent = "+ Add Task";
 
     addTaskBtn.addEventListener("click", () => {
