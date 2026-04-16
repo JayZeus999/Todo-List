@@ -21,6 +21,9 @@
     --active-project-color: #0284c7;
     --projects-list-hover: #f3f4f6;
 
+    --cta-color: #0284c7;
+    --cta-color-hover: #0369a1;
+
     --priority-low-bg: #e0f7ec;
     --priority-low: #1f9d55;
 
@@ -28,7 +31,6 @@
     --priority-mdm: #0284c7;
 
     --priority-high-bg: #fdecca;
-    ;
     --priority-high: #dc2626;
 
     --delete-btn: #999;
@@ -211,6 +213,35 @@ body {
     border-radius: 0.4rem;
     border: 1px solid var(--bdr-right);
 }
+
+.task-panel button {
+    background: var(--cta-color);  
+    border: none;
+    color: white;
+
+    padding: 0.85rem;
+    border-radius: 0.6rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.task-panel button:hover {
+    background: var(--cta-color-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(2, 132, 199, 0.25);
+}
+
+.task-panel button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(31, 157, 85, 0.25);
+}
+
+
+
 
 
 .todo-item {
