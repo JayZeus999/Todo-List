@@ -46,7 +46,7 @@ function renderDefaultPage() {
     projects.forEach((project, index) => {
         const projectItem = document.createElement("div");
         projectItem.classList.add("project-item");
-       
+
         const projectName = document.createElement("span");
         projectName.textContent = project.name;
 
@@ -262,6 +262,12 @@ function renderDefaultPage() {
         const panel = document.createElement("div");
         panel.classList.add("task-panel");
 
+        const header = document.createElement("div");
+        header.classList.add("task-header");
+
+        const title = document.createElement("h3");
+        title.textContent = "Add Task";
+
         const form = document.createElement("form");
 
         const titleInput = document.createElement("input");
@@ -289,6 +295,8 @@ function renderDefaultPage() {
         submitBtn.textContent = "Save Task";
         submitBtn.type = "submit";
 
+        header.append(title);
+
         form.append(
             titleInput,
             descInput,
@@ -297,10 +305,10 @@ function renderDefaultPage() {
             submitBtn
         );
 
-        return { tray, panel, form, titleInput, descInput, dueDateInput, prioritySelect };
+        return { tray, panel, header, form, titleInput, descInput, dueDateInput, prioritySelect };
     };
 
-    const { tray, panel, form, titleInput, descInput, dueDateInput, prioritySelect } = createTodoForm();
+    const { tray, panel, header, form, titleInput, descInput, dueDateInput, prioritySelect } = createTodoForm();
 
 
     form.addEventListener("submit", (e) => {
@@ -340,7 +348,10 @@ function renderDefaultPage() {
         toDoList,
         addTaskBtn
     );
-    panel.appendChild(form);
+    panel.append(
+        header,
+        form
+    );
     tray.appendChild(panel);
 
     container.append(

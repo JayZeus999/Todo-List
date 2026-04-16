@@ -184,9 +184,32 @@ body {
 
 .task-panel {
     width: 25rem;
+    height: 25rem;
     background-color: var(--bg-color);
+
+    display: flex;
+    flex-direction: column;
+    
+    gap: 3.5rem;
     padding: 1.5rem;
     border-radius: 0.5rem;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+.task-panel form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.2rem;
+}
+
+.task-panel form input,
+.task-panel form select {
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    border: 1px solid var(--bdr-right);
 }
 
 
