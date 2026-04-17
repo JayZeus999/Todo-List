@@ -15,10 +15,17 @@
     --bdr-right: #e5e7eb;
     --bg-color: white;
 
+    --font-family-1: "Inter", sans-serif;
+    --font-family-2: "Poppins", sans-serif;
+
+    --util-btn: #374151;
+    --util-btn-hover: #f3f4f6;
+
     --todo-bottom: #666;
+    --todo-item-bgd: #fff;
     --todo-item-bottom: #eee;
 
-    --active-project-bg: #e5e7eb;
+    --active-project-bg: rgba(2, 132, 199, 0.1);;
     --active-project-color: #0284c7;
     --projects-list-hover: #f3f4f6;
 
@@ -35,18 +42,21 @@
     --priority-high: #dc2626;
 
     --delete-btn: #999;
+
+    --add-task-project-btn-bg: rgba(2, 132, 199, 0.08);
+    --add-task-project-btn-hover: rgba(2, 132, 199, 0.15);
 }
 
 
 body {
     display: flex;
     min-height: 100vh;
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-family-1);
 }
 
 h1,
 h3 {
-    font-family: "Poppins", sans-serif;
+    font-family: var(--font-family-2);
 }
 
 .profile-pic {
@@ -117,12 +127,12 @@ h3 {
     font-size: 0.95rem;
     font-family: "Poppins", sans-serif;
 
-    color: #374151;
+    color: var(--util-btn);
     transition: background 0.15s ease;
 }
 
 .utilities button:hover {
-    background-color: #f3f4f6;
+    background-color: var(--util-btn-hover);
     cursor: pointer;
 }
 
@@ -142,7 +152,7 @@ h3 {
 }
 
 .active-project {
-    background-color: rgba(2, 132, 199, 0.1);
+    background-color: var(--active-project-bg);
     color: var(--active-project-color);
 
     font-weight: bold;
@@ -418,7 +428,7 @@ input[type="checkbox"]:checked::before {
 
 .add-project-btn,
 .add-task-btn {
-    background: rgba(2, 132, 199, 0.08);
+    background: var(--add-task-project-btn-bg);
     border: none;
     color: var(--cta-color);
 
@@ -441,6 +451,6 @@ input[type="checkbox"]:checked::before {
 
 .add-project-btn:hover,
 .add-task-btn:hover {
-    background: rgba(2, 132, 199, 0.15);
+    background: var(--add-task-project-btn-hover);
     transform: translateY(-1px);
 }
