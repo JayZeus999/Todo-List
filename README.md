@@ -1,5 +1,5 @@
 My take on a project from the Odin Project
 
-Clean UI, project-based tasks, priority system & local storage persistence.
+Clean UI; It supports project organization, task priorities, and persistent storage using localStorage.
 
 Built with Vanilla JS, Webpack.
